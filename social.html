@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Social Feed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-qv8q4t9lbJxxXsZ+f5CNs4lPk6cmfofoXbmlbzoa18Jgtz5Sd5T93TGy2DS3hpttJTpIuPFRP4H6lkDjyZZ2ZA==" crossorigin="anonymous" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-family: 'Signika Negative', sans-serif;
+        }
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 8%;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #2196F3;
+        }
+        .post {
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #555;
+            margin-right: 10px;
+        }
+        .user-name {
+            color: #2196F3;
+            font-weight: bold;
+        }
+        .post-time {
+            color: #888;
+        }
+        .post-content {
+            color: #fff;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        .action-btn {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .action-btn i {
+            margin-right: 5px;
+        }
+        .comments {
+            margin-top: 20px;
+            color: #ccc;
+        }
+        .comment {
+            margin-top: 10px;
+            border-top: 1px solid #555;
+            padding-top: 10px;
+        }
+        .comment-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .comment-input {
+            flex-grow: 1;
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .comment-submit {
+            padding: 10px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .comment-submit:hover {
+            background-color: #1565C0;
+        }
+        label.switch {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #2196F3;
+            margin-top: 20px;
+        }
+        label.switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.5s;
+        }
+        label.switch input:checked + .slider {
+            background-color: #2196F3;
+        }
+        label.switch input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fitness Social Feed</h1>
+        </header>
+        <div class="post">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="user-avatar"></div>
+                    <div class="user-name">FitnessEnthusiast</div>
+                </div>
+                <div class="post-time">2 hours ago</div>
+            </div>
+            <div class="post-content">
+                <p>Just finished a great workout session at the gym! 💪 Feeling pumped and ready to conquer the day.</p>
+            </div>
+            <div class="actions">
+                <div class="action-btn"><i class="fa-solid fa-thumbs-up"></i> Like</div>
+                <div class="action-btn"><i class="far fa-comment"></i> Comment</div>
+                <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="user-info">
+                        <div class="user-avatar"></div>
+                        <div class="user-name">FitnessFanatic</div>
+                    </div>
+                    <div class="comment-content">Awesome workout! Keep it up!</div>
+                </div>
+                <!-- More comments go here -->
+            </div>
+            <div class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment...">
+                <button class="comment-submit">Submit</button>
+            </div>
+        </div>
+
+        <div class="post">
+            <div class="post-header">
+                <div class="user-info">
+                    <div class="user-avatar"></div>
+                    <div class="user-name">FitnessEnthusiast</div>
+                </div>
+                <div class="post-time">2 hours ago</div>
+            </div>
+            <div class="post-content">
+                <p>Just finished a great workout session at the gym! 💪 Feeling pumped and ready to conquer the day.</p>
+            </div>
+            <div class="actions">
+                <div class="action-btn"><i class="far fa-thumbs-up"></i> Like</div>
+                <div class="action-btn"><i class="far fa-comment"></i> Comment</div>
+                <div class="action-btn"><i class="fas fa-share"></i> Share</div>
+            </div>
+            <div class="comments">
+                <div class="comment">
+                    <div class="user-info">
+                        <div class="user-avatar"></div>
+                        <div class="user-name">FitnessFanatic</div>
+                    </div>
+                    <div class="comment-content">Awesome workout! Keep it up!</div>
+                </div>
+                <!-- More comments go here -->
+            </div>
+            <div class="comment-form">
+                <input type="text" class="comment-input" placeholder="Add a comment...">
+                <button class="comment-submit">Submit</button>
+            </div>
+        </div>
+
+        <!-- Add more posts here -->
+
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            Dark Mode
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <script>
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        darkModeToggle.addEventListener("change", () => {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>
